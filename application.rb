@@ -17,12 +17,18 @@ class Application
   def body
     {
       version: '0.0.0',
-      name: 'Rack based API'
+      name: 'Rack based API',
+      updated_at: Time.now,
+      env: {
+        'PORT' => ENV.fetch('PORT', nil),
+        'GITHUB_TOKEN' => ENV.fetch('GITHUB_TOKEN', nil),
+        'RACK_ENV' => ENV.fetch('RACK_ENV', nil)
+      }
     }.to_json
   end
 
   def content_type
-    json_content_typex
+    json_content_type
   end
 
   def json_content_type
